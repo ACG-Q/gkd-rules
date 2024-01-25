@@ -23,7 +23,10 @@ const sortKeys: (keyof RawSubscription)[] = [
   'apps',
 ];
 
-const handleCheckoutDirIsExist = async (dir: string, callback: () => Promise<any>) => {
+const handleCheckoutDirIsExist = async (
+  dir: string,
+  callback: () => Promise<any>,
+) => {
   try {
     await fs.access(dir);
     console.log('目录已存在');
@@ -37,7 +40,7 @@ const handleCheckoutDirIsExist = async (dir: string, callback: () => Promise<any
       console.error('目录创建失败:', err);
     }
   }
-}
+};
 
 const orderdStringify = (
   obj: any,
@@ -109,17 +112,19 @@ export const writeConfig = async (config: RawSubscription) => {
 
   // update gkd.json
   const buffer = Buffer.from(orderdStringify5(newConfig, sortKeys), 'utf-8');
-  await handleCheckoutDirIsExist(distDir, ()=>fs.writeFile(gkdFp, buffer));
+  await handleCheckoutDirIsExist(distDir, () => fs.writeFile(gkdFp, buffer));
 
   // update gkd.version.json
-  await handleCheckoutDirIsExist(distDir, ()=>fs.writeFile(
-    versionFp,
-    JSON.stringify(
-      { id: newConfig.id, version: newConfig.version },
-      undefined,
-      2,
+  await handleCheckoutDirIsExist(distDir, () =>
+    fs.writeFile(
+      versionFp,
+      JSON.stringify(
+        { id: newConfig.id, version: newConfig.version },
+        undefined,
+        2,
+      ),
     ),
-  ));
+  );
 
   console.log(
     `更新订阅: v${newConfig.version}, 文件大小: ${
@@ -399,7 +404,9 @@ export const updateAppMd = async (app: RawApp) => {
   const docsDir = process.cwd() + '/docs';
   const fileName = `${app.id}.md`;
   const filePath = docsDir + `/${fileName}`;
-  await handleCheckoutDirIsExist(docsDir, ()=>fs.writeFile(filePath, appMdText, 'utf-8'))
+  await handleCheckoutDirIsExist(docsDir, () =>
+    fs.writeFile(filePath, appMdText, 'utf-8'),
+  );
 };
 
 const getAppDiffLog = (

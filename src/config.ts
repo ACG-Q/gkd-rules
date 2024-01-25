@@ -9,8 +9,10 @@ const subsConfig: RawSubscription = {
   name: '六记のGKD规则',
   author: 'ACG-Q',
   supportUri: 'https://github.com/ACG-Q/gkd-rules',
-  updateUrl: 'https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACG-Q/gkd-rules/main/dist/gkd.json5',
-  checkUpdateUrl: 'https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACG-Q/gkd-rules/main/dist/gkd.version.json',
+  updateUrl:
+    'https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACG-Q/gkd-rules/main/dist/gkd.json5',
+  checkUpdateUrl:
+    'https://mirror.ghproxy.com/https://raw.githubusercontent.com/ACG-Q/gkd-rules/main/dist/gkd.version.json',
   globalGroups,
   categories,
   apps,
