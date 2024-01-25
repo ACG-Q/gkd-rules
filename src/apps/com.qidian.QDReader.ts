@@ -12,7 +12,8 @@ export default defineAppConfig({
         {
           activityIds: 'com.qq.e.tg.RewardvideoPortraitADActivity',
           matches: 'ToggleButton[text="关闭"] -3 View > View[text^="已观看"]',
-          exampleUrls: 'https://m.gkd.li/47310744/f597c71e-a9b2-4766-b422-7f50180468c7',
+          exampleUrls:
+            'https://m.gkd.li/47310744/f597c71e-a9b2-4766-b422-7f50180468c7',
           snapshotUrls: 'https://i.gkd.li/import/14048150',
         },
       ],
