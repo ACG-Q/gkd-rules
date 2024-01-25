@@ -6,8 +6,8 @@ export default defineAppConfig({
   groups: [
     {
       key: 1,
-      name: '[ChangeMe]规则名称-2024-01-25 15:21:01',
-      desc: '[ChangeMe]本规则由GKD网页端审查工具生成',
+      name: '局部广告',
+      desc: '看视频领取福利',
       rules: [
         {
           activityIds: 'com.qq.e.tg.RewardvideoPortraitADActivity',
