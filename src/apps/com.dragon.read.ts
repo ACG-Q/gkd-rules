@@ -42,7 +42,8 @@ export default defineAppConfig({
         {
           activityIds: 'com.dragon.read.reader.speech.page.AudioPlayActivity',
           matches: '[id="com.dragon.read:id/bl5"][text="关闭"]',
-          exampleUrls: 'https://m.gkd.li/47310744/6c47b5c7-6521-4302-ba17-e9585822cbc5',
+          exampleUrls:
+            'https://m.gkd.li/47310744/6c47b5c7-6521-4302-ba17-e9585822cbc5',
           snapshotUrls: 'https://i.gkd.li/import/14047928',
         },
       ],
