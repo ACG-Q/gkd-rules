@@ -22,21 +22,6 @@ export default defineAppConfig({
     {
       key: 2,
       name: '功能类',
-      desc: '福利页面-右下角-宝箱<开宝箱得金币>',
-      rules: [
-        {
-          matches: 'FlattenUIText[text=\'开宝箱得金币\']',
-          snapshotUrls: ['https://i.gkd.li/import/13482949'],
-          exampleUrls: [
-            'https://m.gkd.li/47310744/bb683458-2006-45ae-95d2-1f2d8bbd63a7',
-          ],
-          activityIds: ['com.dragon.read.pages.main.MainFragmentActivity'],
-        },
-      ],
-    },
-    {
-      key: 3,
-      name: '功能类',
       desc: '恭喜你获得 xx 金币',
       rules: [
         {
@@ -50,15 +35,14 @@ export default defineAppConfig({
       ],
     },
     {
-      key: 4,
+      key: 3,
       name: '局部广告',
       desc: '听书页面 👆 广告',
       rules: [
         {
           activityIds: 'com.dragon.read.reader.speech.page.AudioPlayActivity',
-          matches: '[id="com.dragon.read:id/bl5"]',
-          exampleUrls:
-            'https://m.gkd.li/47310744/6c47b5c7-6521-4302-ba17-e9585822cbc5',
+          matches: '[id="com.dragon.read:id/bl5"][text="关闭"]',
+          exampleUrls: 'https://m.gkd.li/47310744/6c47b5c7-6521-4302-ba17-e9585822cbc5',
           snapshotUrls: 'https://i.gkd.li/import/14047928',
         },
       ],
