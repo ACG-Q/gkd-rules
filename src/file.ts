@@ -152,7 +152,7 @@ export async function* walk(dirPath: string) {
 
 export const validSnapshotUrl = (s: string) => {
   const u = new URL(s);
-  return u.pathname.startsWith('/import/');
+  return u.pathname.startsWith('/i/') || u.pathname.startsWith('/import/');
 };
 
 export const checkConfig = (newConfig: RawSubscription) => {
