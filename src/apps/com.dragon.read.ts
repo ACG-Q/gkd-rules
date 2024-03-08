@@ -27,9 +27,14 @@ export default defineAppConfig({
         {
           quickFind: true,
           matches: '[id="com.dragon.read:id/ady"]',
-          exampleUrls:
-            'https://m.gkd.li/47310744/b8742ea0-5537-4c3e-a7e7-9a36585f5c34',
+          exampleUrls: 'https://m.gkd.li/47310744/b8742ea0-5537-4c3e-a7e7-9a36585f5c34',
           snapshotUrls: 'https://i.gkd.li/import/14047985',
+        },
+        {
+          activityIds: 'com.dragon.read.pages.main.MainFragmentActivity',
+          matches: '@UIView -2 UIComponent',
+          exampleUrls: 'https://m.gkd.li/47310744/57f1f752-617f-43c5-a177-e04ddd3286d1',
+          snapshotUrls: 'https://i.gkd.li/i/14532015',
         },
       ],
     },
