@@ -13,12 +13,12 @@ export default defineAppConfig({
           activityIds: 'com.jason.videocat.ui.activity.WelcomeActivity',
           matches: '[id="com.walixiwa.flash.player:id/content"] >3 View',
         },
-		{
+        {
           quickFind: true,
           activityIds: 'com.jason.videocat.ui.activity.WelcomeActivity',
           matches: '[text^="跳过"]',
         },
       ],
     },
-  ]
+  ],
 });
