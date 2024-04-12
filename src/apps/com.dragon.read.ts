@@ -12,9 +12,7 @@ export default defineAppConfig({
         {
           matches: ['@TextView[text="关闭广告"]'],
           snapshotUrls: ['https://i.gkd.li/import/13463084'],
-          exampleUrls: [
-            'https://m.gkd.li/47310744/8133d231-2601-4fa1-999c-a744eb2eff99',
-          ],
+          exampleUrls: [ 'https://m.gkd.li/47310744/8133d231-2601-4fa1-999c-a744eb2eff99',],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
       ],
@@ -28,7 +26,7 @@ export default defineAppConfig({
           quickFind: true,
           matches: '[id="com.dragon.read:id/ady"]',
           exampleUrls: 'https://m.gkd.li/47310744/b8742ea0-5537-4c3e-a7e7-9a36585f5c34',
-          snapshotUrls: 'https://i.gkd.li/import/14047985',
+          snapshotUrls: 'https://i.gkd.li/i/14047985',
         },
         {
           activityIds: 'com.dragon.read.pages.main.MainFragmentActivity',
@@ -46,8 +44,7 @@ export default defineAppConfig({
         {
           activityIds: 'com.dragon.read.reader.speech.page.AudioPlayActivity',
           matches: '[id="com.dragon.read:id/bl5"][text="关闭"]',
-          exampleUrls:
-            'https://m.gkd.li/47310744/6c47b5c7-6521-4302-ba17-e9585822cbc5',
+          exampleUrls: 'https://m.gkd.li/47310744/6c47b5c7-6521-4302-ba17-e9585822cbc5',
           snapshotUrls: 'https://i.gkd.li/import/14047928',
         },
       ],
