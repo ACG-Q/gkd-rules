@@ -31,7 +31,8 @@ export default defineAppConfig({
         {
           activityIds: 'com.dragon.read.pages.main.MainFragmentActivity',
           matches: '@UIView -2 UIComponent',
-          exampleUrls: 'https://m.gkd.li/47310744/57f1f752-617f-43c5-a177-e04ddd3286d1',
+          exampleUrls:
+            'https://m.gkd.li/47310744/57f1f752-617f-43c5-a177-e04ddd3286d1',
           snapshotUrls: 'https://i.gkd.li/i/14532015',
         },
       ],
