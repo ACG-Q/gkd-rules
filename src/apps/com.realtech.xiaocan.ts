@@ -11,7 +11,8 @@ export default defineAppConfig({
       rules: [
         {
           activityIds: 'com.jason.videocat.ui.activity.WelcomeActivity',
-          matches: '[desc="仅限本次"]',
+          matches: 'Button[desc="仅限本次"]',
+          snapshotUrls: 'https://i.gkd.li/i/16504721',
         },
       ],
     },
