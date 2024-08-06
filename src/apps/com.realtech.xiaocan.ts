@@ -6,7 +6,7 @@ export default defineAppConfig({
   groups: [
     {
       key: 1,
-      name: '权限提示',
+      name: '功能类',
       desc: '是否允许跳转微信，仅限本次，防止点击"始终允许"',
       rules: [
         {
