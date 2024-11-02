@@ -66,6 +66,6 @@ export default defineAppConfig({
           exampleUrls: 'https://e.gkd.li/undefined',
         },
       ],
-    }
+    },
   ],
 });
