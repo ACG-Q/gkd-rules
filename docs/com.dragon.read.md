@@ -1,6 +1,6 @@
 # 番茄免费小说
 
-存在 3 规则组 - [com.dragon.read](/src/apps/com.dragon.read.ts)
+存在 4 规则组 - [com.dragon.read](/src/apps/com.dragon.read.ts)
 
 ## 功能类
 
@@ -27,3 +27,9 @@
 - [示例-0](https://m.gkd.li/47310744/6c47b5c7-6521-4302-ba17-e9585822cbc5)
 
 - [快照-0](https://i.gkd.li/import/14047928)
+
+## 开屏广告
+
+最近双11才出现的启动页广告
+
+- [示例-0](https://e.gkd.li/undefined)
