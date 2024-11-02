@@ -54,5 +54,18 @@ export default defineAppConfig({
         },
       ],
     },
+    {
+      key: 4,
+      name: '开屏广告',
+      desc: '最近双11才出现的启动页广告',
+      rules: [
+        {
+          quickFind: true,
+          activityIds: 'com.dragon.read.pages.splash.SplashActivity',
+          matches: 'FrameLayout[id="com.dragon.read:id/bau"]',
+          exampleUrls: 'https://e.gkd.li/undefined',
+        },
+      ],
+    }
   ],
 });
