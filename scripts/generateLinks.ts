@@ -84,9 +84,11 @@ async function generateAcceleratedLinks(
         const acceleratedLink = `${accelerator}${originalLink}`;
         console.log(`正在检测加速链接: ${acceleratedLink}`);
         const isAvailable = await checkLink(acceleratedLink, config);
-        isAvailable
-            ? console.log(`√ 可用加速链接: ${acceleratedLink}`)
-            : console.log(`× 不可用加速链接: ${acceleratedLink}`);
+        if (isAvailable) {
+            console.log(`√ 可用加速链接: ${acceleratedLink}`);
+        } else {
+            console.log(`× 不可用加速链接: ${acceleratedLink}`);
+        }
         return { link: acceleratedLink, available: isAvailable } as LinkCheckResult;
     });
 
