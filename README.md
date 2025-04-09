@@ -41,7 +41,7 @@ https://gh.catmak.name/https://raw.githubusercontent.com/ACG-Q/gkd-rules/main/di
 ```
 
     
-> **🕒 最后更新**：**2025/4/9** 1744176639323
+> **🕒 最后更新**：**2025/4/9** 1744178007363
 
 ## 📂 当前规则分类
 
