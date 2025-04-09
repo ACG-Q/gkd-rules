@@ -9,9 +9,10 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: ✅ Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Get changed files
+      - name: 📂 Get changed files
         id: changed_files
         uses: tj-actions/changed-files@v44
         with:
@@ -21,8 +22,9 @@ jobs:
             src/globalGroups.ts
             src/subscription.ts
 
-      - name: Check changed files
+      - name: 🔍 Check changed files
         run: |
+          echo "Checking changed files..."
           for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
@@ -31,21 +33,26 @@ jobs:
             exit 1
           fi
 
-      - uses: actions/setup-node@v4
+      - name: ✅ Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - uses: pnpm/action-setup@v4
+      - name: ✅ Setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - run: pnpm install
+      - name: 📦 Install dependencies
+        run: pnpm install
 
-      - run: pnpm run check
+      - name: 🔍 Run check
+        run: pnpm run check
 
-      - run: pnpm run format
+      - name: 🎨 Run format
+        run: pnpm run format
 
-      - run: pnpm run lint
-
-      - name: check format status
+      - name: 🧹 Run lint
+        run: pnpm run lint
+      - name: 🔍 Check format status
         run: |
           status=$(git status --porcelain)
           if [ -n "$status" ]; then

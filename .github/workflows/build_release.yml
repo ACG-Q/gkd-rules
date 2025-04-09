@@ -1,4 +1,4 @@
-name: build_release
+name: 🔧 Build & Release
 
 on: workflow_dispatch
 
@@ -8,36 +8,60 @@ jobs:
     outputs:
       version: ${{ steps.version.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
+      - name: ✅ Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: ✅ Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - uses: pnpm/action-setup@v4
+      - name: ✅ Setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - run: pnpm install
-
-      - run: pnpm run build
-
-      - id: version
+      - name: 📦 Install dependencies
         run: |
+          echo "📦 Installing dependencies..."
+          pnpm install
+          echo "✅ Dependencies installed successfully"
+
+      - name: 🔨 Build project
+        run: |
+          echo "🔨 Building project..."
+          pnpm run build
+          echo "✅ Build completed successfully"
+
+      - name: 🔍 Extract version
+        id: version
+        run: |
+          echo "🔍 Extracting version..."
           version=$(node -e "import('@gkd-kit/tools').then((m) => m.stdoutGkdVersion());")
+          echo "📋 Extracted version: ${version}"
           echo "version=${version}" >> "$GITHUB_OUTPUT"
 
-      - name: Git commit
+      - name: 🔄 Git commit
         id: commit
         run: |
+          echo "🔄 Configuring git..."
           git config --local user.email github-actions[bot]@users.noreply.github.com
           git config --local user.name github-actions[bot]
+          echo "📊 Current git status:"
           git status
+          echo "➕ Adding files to git..."
           git add .
+          echo "💾 Committing changes with version v${{steps.version.outputs.version}}..."
           git commit -a -m "chore: v${{steps.version.outputs.version}}"
+          echo "✅ Git commit completed"
         continue-on-error: true
 
-      - name: Git push
+      - name: Log
+        if: ${{ steps.commit.outcome == 'success' }}
+        run: |
+          echo "🚀 Pushing changes to branch ${{ github.ref }} with tags..."
+
+      - name: 🚀 Git push
         if: ${{ steps.commit.outcome == 'success' }}
         uses: ad-m/github-push-action@master
         with:
@@ -45,7 +69,12 @@ jobs:
           branch: ${{ github.ref }}
           tags: true
 
-      - name: Create Release
+      - name: Log
+        if: ${{ steps.commit.outcome =='success' }}
+        run: |
+          echo "📝 Creating release v${{ steps.version.outputs.version }}..."
+
+      - name: 📝 Create Release
         if: ${{ steps.commit.outcome == 'success' }}
         uses: actions/create-release@v1
         env:
@@ -55,12 +84,17 @@ jobs:
           release_name: Release ${{ steps.version.outputs.version }}
           body_path: ./dist/CHANGELOG.md
 
-      - name: Publish package
+      - name: 📤 Publish package
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: ${{ steps.commit.outcome == 'success' && env.NPM_TOKEN != '' }}
         run: |
+          echo "🔑 Configuring NPM registry authentication..."
           pnpm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+          echo "📦 Updating package version..."
           node -e "import('@gkd-kit/tools').then((m) => m.updatePkgVersion());"
+          echo "📤 Publishing package to NPM..."
           pnpm publish --no-git-checks
+          echo "🔄 Syncing to NPM mirror..."
           node -e "import('@gkd-kit/tools').then((m) => m.syncNpmmirror());"
+          echo "✅ Package published successfully"

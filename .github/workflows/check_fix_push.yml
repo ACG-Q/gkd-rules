@@ -1,4 +1,4 @@
-name: check_fix_push
+name: 🔍 Check, Fix & Push
 
 on:
   push:
@@ -13,34 +13,57 @@ jobs:
     if: |
       ${{ github.event.head_commit.message!='chore(actions): check_format_lint' }}
     steps:
-      - uses: actions/checkout@v4
+      - name: ✅ Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: ✅ Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - uses: pnpm/action-setup@v4
+      - name: ✅ Setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - run: pnpm install
+      - name: 📦 Install dependencies
+        run: |
+          echo "📦 Installing dependencies..."
+          pnpm install
+          echo "✅ Dependencies installed successfully"
 
-      - run: pnpm run check
+      - name: 🔍 Run check
+        run: |
+          echo "🔎 Running pnpm check..."
+          pnpm run check
+          echo "✅ Check completed"
 
-      - run: pnpm run format
+      - name: 🎨 Run format
+        run: |
+          echo "🎨 Running code formatter..."
+          pnpm run format
+          echo "✅ Formatting completed"
 
-      - run: pnpm run lint
+      - name: 🧹 Run lint
+        run: |
+          echo "🧹 Running linter..."
+          pnpm run lint
+          echo "✅ Lint completed"
 
-      - name: Git commit
+      - name: 📝 Git commit
         id: commit
         run: |
+          echo "📝 Checking for changes to commit..."
           git config --local user.email github-actions[bot]@users.noreply.github.com
           git config --local user.name github-actions[bot]
           git status --porcelain
           git --no-pager diff
           git commit -a -m "chore(actions): check_format_lint"
+          echo "✅ Changes committed"
         continue-on-error: true
 
-      - name: Git push
-        uses: ad-m/github-push-action@master
+      - name: 🚀 Git push
         if: ${{ steps.commit.outcome == 'success' }}
+        uses: ad-m/github-push-action@master
         with:
           branch: ${{ github.ref }}
