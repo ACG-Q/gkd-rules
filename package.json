@@ -64,16 +64,16 @@
   },
   "proxyLink": {
     "accelerators": [
-        "https://ghproxy.net/",
-        "https://github.moeyy.xyz/",
-        "https://ghfast.top/",
-        "https://gh.xx9527.cn/",
-        "https://ghp.arslantu.xyz/",
-        "https://gh.catmak.name/"
-      ],
-      "originalLink": "https://raw.githubusercontent.com/ACG-Q/gkd-rules/main/dist/gkd.json5",
-      "timeout": 5000,
-      "retries": 3,
-      "retryDelay": 2000
+      "https://ghproxy.net/",
+      "https://github.moeyy.xyz/",
+      "https://ghfast.top/",
+      "https://gh.xx9527.cn/",
+      "https://ghp.arslantu.xyz/",
+      "https://gh.catmak.name/"
+    ],
+    "originalLink": "https://raw.githubusercontent.com/ACG-Q/gkd-rules/main/dist/gkd.json5",
+    "timeout": 5000,
+    "retries": 3,
+    "retryDelay": 2000
   }
 }
