@@ -1,10 +1,28 @@
 {
-  "name": "@gkd-kit/subscription",
+  "name": "gkd-rules",
   "type": "module",
+  "homepage": "https://github.com/ACG-Q/gkd-rules",
   "version": "1.9.0",
-  "main": "./dist/gkd.json5",
-  "unpkg": "./dist/gkd.json5",
-  "jsdelivr": "./dist/gkd.json5",
+  "scripts": {
+    "postinstall": "simple-git-hooks",
+    "format": "prettier --cache --write ./**/*.{js,cjs,mjs,ts,jsx,tsx,json}",
+    "lint": "eslint --cache --fix ./**/*.{js,cjs,mjs,ts,jsx,tsx}",
+    "check": "tsc --noEmit && tsx ./scripts/check.ts",
+    "build": "tsc --noEmit && tsx ./scripts/build.ts"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged",
+    "pre-push": "pnpm run check"
+  },
+  "lint-staged": {
+    "*.{js,cjs,mjs,ts,jsx,tsx}": [
+      "eslint --cache --fix",
+      "prettier --cache --write"
+    ],
+    "*.json": [
+      "prettier --cache --write"
+    ]
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -12,62 +30,36 @@
   "files": [
     "./dist"
   ],
-  "scripts": {
-    "prepare": "husky install",
-    "format": "prettier --cache --write .",
-    "lint": "eslint --cache --fix ./**/*.{js,ts,jsx,tsx}",
-    "build": "tsc --noEmit && tsx ./scripts/build.ts",
-    "check": "tsc --noEmit && tsx ./scripts/check.ts",
-    "updateSubs": "tsx ./scripts/updateSubs.ts"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^18.4.4",
-    "@commitlint/config-conventional": "^18.4.4",
-    "@commitlint/types": "^18.4.4",
-    "@gkd-kit/selector": "0.0.18",
-    "@types/lodash": "^4.14.202",
-    "@types/node": "^20.11.5",
-    "@typescript-eslint/eslint-plugin": "6.19.0",
-    "@typescript-eslint/parser": "6.19.0",
-    "dayjs": "^1.11.10",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-define-config": "2.1.0",
-    "husky": "^8.0.3",
-    "json5": "^2.2.3",
-    "lint-staged": "^15.2.0",
-    "lodash": "^4.17.21",
-    "picocolors": "^1.0.0",
-    "pinyin-pro": "3.19.2",
-    "prettier": "^3.2.4",
-    "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
-  },
-  "author": "lisonge",
-  "license": "MIT",
-  "homepage": "https://github.com/gkd-kit/subscription#readme",
-  "bugs": {
-    "url": "https://github.com/gkd-kit/subscription/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gkd-kit/subscription.git"
+  "dependencies": {
+    "@eslint/js": "9.23.0",
+    "@gkd-kit/api": "0.7.0",
+    "@gkd-kit/define": "0.0.1",
+    "@gkd-kit/tools": "0.6.0",
+    "@types/node": "22.13.17",
+    "eslint": "9.23.0",
+    "eslint-config-prettier": "10.1.1",
+    "eslint-plugin-unused-imports": "4.1.4",
+    "json5": "2.2.3",
+    "lint-staged": "15.5.0",
+    "prettier": "3.5.3",
+    "simple-git-hooks": "2.12.1",
+    "tsx": "4.19.3",
+    "typescript": "5.8.2",
+    "typescript-eslint": "8.29.0"
   },
   "volta": {
-    "node": "20.9.0"
+    "node": "22.11.0",
+    "pnpm": "10.7.1"
   },
-  "packageManager": "pnpm@8.10.2",
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+  "packageManager": "pnpm@10.7.1",
+  "engines": {
+    "node": ">=22"
   },
-  "lint-staged": {
-    "*": [
-      "prettier --cache --write --ignore-unknown"
-    ],
-    "*.{js,ts,jsx,tsx}": [
-      "eslint --cache --fix"
-    ]
+  "gkd": {
+    "outDir": "dist",
+    "file": "gkd.json5",
+    "versionFile": "gkd.version.json5",
+    "changelog": "CHANGELOG.md",
+    "README.md": "README.md"
   }
 }

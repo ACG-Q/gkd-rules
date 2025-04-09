@@ -1,27 +1,24 @@
-import { defineAppConfig } from '../types';
+import { defineGkdApp } from '@gkd-kit/define';
 
-export default defineAppConfig({
+export default defineGkdApp({
   id: 'com.dragon.read',
   name: '番茄免费小说',
   groups: [
     {
       key: 1,
-      name: '功能类',
+      name: '功能类-视频广告',
       desc: '看视频领取金币',
       rules: [
         {
           matches: ['@TextView[text="关闭广告"]'],
           snapshotUrls: ['https://i.gkd.li/import/13463084'],
-          exampleUrls: [
-            'https://m.gkd.li/47310744/8133d231-2601-4fa1-999c-a744eb2eff99',
-          ],
           activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
         },
       ],
     },
     {
       key: 2,
-      name: '功能类',
+      name: '功能类-奖励弹窗',
       desc: '恭喜你获得 xx 金币',
       rules: [
         {
@@ -42,7 +39,7 @@ export default defineAppConfig({
     },
     {
       key: 3,
-      name: '局部广告',
+      name: '功能类-听书广告',
       desc: '听书页面 👆 广告',
       rules: [
         {
@@ -56,7 +53,7 @@ export default defineAppConfig({
     },
     {
       key: 4,
-      name: '开屏广告',
+      name: '开屏广告-启动页广告',
       desc: '最近双11才出现的启动页广告',
       rules: [
         {

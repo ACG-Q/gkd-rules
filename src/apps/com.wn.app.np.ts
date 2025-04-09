@@ -1,12 +1,12 @@
-import { defineAppConfig } from '../types';
+import { defineGkdApp } from '@gkd-kit/define';
 
-export default defineAppConfig({
+export default defineGkdApp({
   id: 'com.wn.app.np',
   name: 'NP管理器',
   groups: [
     {
       key: 1,
-      name: '开屏广告',
+      name: '开屏广告-启动广告',
       desc: '点击 跳过',
       rules: [
         {

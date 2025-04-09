@@ -1,12 +1,12 @@
-import { defineAppConfig } from '../types';
+import { defineGkdApp } from '@gkd-kit/define';
 
-export default defineAppConfig({
+export default defineGkdApp({
   id: 'com.realtech.xiaocan',
   name: '小蚕霸王餐',
   groups: [
     {
       key: 1,
-      name: '功能类',
+      name: '功能类-跳转微信',
       desc: '是否允许跳转微信，仅限本次，防止点击"始终允许"',
       rules: [
         {

@@ -7,30 +7,35 @@ on:
 
 jobs:
   check:
-    if: github.repository == 'ACG-Q/gkd-rules'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Get changed files
         id: changed_files
-        uses: tj-actions/changed-files@v39
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            src/apps/*.ts
+            src/categories.ts
+            src/globalGroups.ts
+            src/subscription.ts
 
       - name: Check changed files
         run: |
-          if [ ${{ steps.changed_files.outputs.all_changed_files_count }} -ne 1 ]; then
-            echo "your changed files count must be 1"
-            exit 1
-          fi
           for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
+          if [ ${{ steps.changed_files.outputs.all_changed_files_count }} -gt 1 ]; then
+            echo "your src subscription changed files count must <= 1"
+            exit 1
+          fi
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
 
       - run: pnpm install
 

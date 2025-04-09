@@ -1,12 +1,12 @@
-import { defineAppConfig } from '../types';
+import { defineGkdApp } from '@gkd-kit/define';
 
-export default defineAppConfig({
+export default defineGkdApp({
   id: 'com.hunantv.imgo.activity',
   name: '芒果TV',
   groups: [
     {
       key: 1,
-      name: '局部广告',
+      name: '局部广告-悬浮广告',
       desc: '悬浮广告按钮',
       rules: [
         {
@@ -36,7 +36,7 @@ export default defineAppConfig({
     },
     {
       key: 3,
-      name: '局部广告',
+      name: '局部广告-暂停广告①',
       desc: '播放器暂停时出现的广告',
       rules: [
         {
@@ -50,7 +50,7 @@ export default defineAppConfig({
     },
     {
       key: 4,
-      name: '局部广告',
+      name: '局部广告-播放广告①',
       desc: '播放器 播放过程中的广告',
       rules: [
         {
