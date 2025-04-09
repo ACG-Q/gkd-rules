@@ -2,13 +2,13 @@
   "name": "gkd-rules",
   "type": "module",
   "homepage": "https://github.com/ACG-Q/gkd-rules",
-  "version": "1.9.0",
+  "version": "0.0.1",
   "scripts": {
     "postinstall": "simple-git-hooks",
     "format": "prettier --cache --write ./**/*.{js,cjs,mjs,ts,jsx,tsx,json}",
     "lint": "eslint --cache --fix ./**/*.{js,cjs,mjs,ts,jsx,tsx}",
     "check": "tsc --noEmit && tsx ./scripts/check.ts",
-    "build": "tsc --noEmit && tsx ./scripts/build.ts"
+    "build": "tsc --noEmit && tsx ./scripts/build.ts && tsx ./scripts/generateLinks.ts"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged",
@@ -61,5 +61,19 @@
     "versionFile": "gkd.version.json5",
     "changelog": "CHANGELOG.md",
     "README.md": "README.md"
+  },
+  "proxyLink": {
+    "accelerators": [
+        "https://ghproxy.net/",
+        "https://github.moeyy.xyz/",
+        "https://ghfast.top/",
+        "https://gh.xx9527.cn/",
+        "https://ghp.arslantu.xyz/",
+        "https://gh.catmak.name/"
+      ],
+      "originalLink": "https://raw.githubusercontent.com/ACG-Q/gkd-rules/main/dist/gkd.json5",
+      "timeout": 5000,
+      "retries": 3,
+      "retryDelay": 2000
   }
 }
